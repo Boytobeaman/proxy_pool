@@ -46,12 +46,16 @@ class GetConfig(object):
         return int(self.config_file.get('DB', 'port'))
 
     @LazyProperty
-    def db_password(self):
-        try:
-            password = self.config_file.get('DB', 'password')
-        except Exception:
-            password = None
-        return password
+    def db_mongodb_url(self):
+        return self.config_file.get('DB', 'mongodb_url')
+
+    # @LazyProperty
+    # def db_password(self):
+    #     try:
+    #         password = self.config_file.get('DB', 'password')
+    #     except Exception:
+    #         password = None
+    #     return password
 
 
     @LazyProperty
